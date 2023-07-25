@@ -4,6 +4,7 @@ services:
   n3uron:
     build: .
     ports:
+      - 80:8003   # HTTP WebUI for balena's Public Device URL feature
       - 8003:8003 # HTTP WebUI
       - 8443:8443 # HTTPS WebUI
       - 8004:8004 # HTTP WebVision
@@ -18,6 +19,7 @@ services:
       - n3_log:/opt/n3uron/log
     cap_add:
       - SYS_ADMIN
+      - SYS_RAWIO
     restart: always
 
   mongo:
