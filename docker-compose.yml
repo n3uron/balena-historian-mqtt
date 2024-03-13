@@ -1,10 +1,10 @@
-version: '2'
+version: "2"
 
 services:
   n3uron:
     image: n3uronhub/n3uron:v1.21.7
     ports:
-      - 80:8003   # HTTP WebUI for balena's Public Device URL feature
+      - 80:8003 # HTTP WebUI for balena's Public Device URL feature
       - 8003:8003 # HTTP WebUI
       - 8443:8443 # HTTPS WebUI
       - 8004:8004 # HTTP WebVision
@@ -13,10 +13,10 @@ services:
     environment:
       - HOSTNAME=balena-historian
     volumes:
-      - n3_config:/opt/n3uron/config
-      - n3_data:/opt/n3uron/data
-      - n3_licenses:/opt/n3uron/licenses
-      - n3_log:/opt/n3uron/log
+      - config:/opt/n3uron/config
+      - data:/opt/n3uron/data
+      - licenses:/opt/n3uron/licenses
+      - log:/opt/n3uron/log
     cap_add:
       - SYS_ADMIN
       - SYS_RAWIO
@@ -37,8 +37,8 @@ services:
     restart: always
 
 volumes:
-  n3_config:
-  n3_data:
-  n3_licenses:
-  n3_log:
+  config:
+  data:
+  licenses:
+  log:
   mongo_data:
